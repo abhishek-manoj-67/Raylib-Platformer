@@ -14,6 +14,8 @@ public:
     Vec2 normalize() const;
     Vec2 perp() const;
 
+    Vec2& zero();
+
     Vec2 operator-() const;
 
     // binary

@@ -40,6 +40,15 @@ Vec2 Vec2::perp() const {
 
 }
 
+Vec2& Vec2::zero() {
+
+    this->x = 0;
+    this->y = 0;
+
+    return *this;
+
+}
+
 Vec2 Vec2::operator-() const {
 
     return Vec2(-this->x, -this->y);

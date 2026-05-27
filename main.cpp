@@ -15,9 +15,15 @@ int main () {
 
     // variables
     Vec2 position = Vec2(0, 0);
-    Vec2 direction = Vec2(1, 1);
+    Vec2 velocity = Vec2(0, 0);
+
+    Vec2 direction = Vec2(0, 0);
+
+    double speed = 10;
 
     while (WindowShouldClose() == false){
+        // direction input
+        direction.zero();
 
         // update
         position += direction;
@@ -27,6 +33,7 @@ int main () {
         // render
         BeginDrawing();
             ClearBackground(BLACK);
+            DrawCircle(position.x, position.y, 3, WHITE);
         EndDrawing();
     }
 
