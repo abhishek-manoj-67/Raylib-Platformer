@@ -11,7 +11,7 @@ double Vec2::magnitude() const {
 
 double Vec2::magnitudeSquared() const {
 
-    return this->x * this->x + this->y + this->y;
+    return this->x * this->x + this->y * this->y;
 
 }
 
@@ -58,9 +58,45 @@ double Vec2::cross(const Vec2& other) const {
 
 }
 
+Vec2& Vec2::operator+=(const Vec2& other) {
+
+    this->x += other.x;
+    this->y += other.y;
+
+    return *this;
+
+}
+
+Vec2& Vec2::operator-=(const Vec2& other) {
+
+    this->x -= other.x;
+    this->y -= other.y;
+
+    return *this;
+
+}
+
+Vec2& Vec2::operator*=(const double scalar) {
+
+    this->x *= scalar;
+    this->y *= scalar;
+
+    return *this;
+
+}
+
+Vec2& Vec2::operator/=(const double scalar) {
+
+    this->x /= scalar;
+    this->y /= scalar;
+
+    return *this;
+
+}
+
 Vec2 Vec2::operator+(const Vec2& other) const {
 
-    return Vec2(this->x + other.x, this->y + other.y);
+    return (Vec2(this->x + other.x, this->y + other.y));
 
 }
 Vec2 Vec2::operator-(const Vec2& other) const {
@@ -77,10 +113,16 @@ Vec2 Vec2::operator*(const double scalar) const {
 
 Vec2 Vec2::operator/(const double scalar) const {
 
-    if (scalar != 0) {
-        return Vec2(this->x / scalar, this->y / scalar);
-    } else {
-        assert("Cannot divide by 0!");
-    }
+    assert(scalar != 0.0 && "Cannot divide by 0!");
+    return Vec2(this->x / scalar, this->y / scalar);
 
 }
+
+
+std::ostream& operator<<(std::ostream& os, const Vec2& vec) {
+
+    os << "(" << vec.x << ", " << vec.y << ")";
+    return os;
+
+}
+

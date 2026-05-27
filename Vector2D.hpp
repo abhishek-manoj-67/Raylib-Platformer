@@ -20,6 +20,11 @@ public:
     double dot(const Vec2& other) const;
     double cross(const Vec2& other) const;
 
+    Vec2& operator+=(const Vec2& other);
+    Vec2& operator-=(const Vec2& other);
+    Vec2& operator*=(const double scalar);
+    Vec2& operator/=(const double scalar);
+
     Vec2 operator+(const Vec2& other) const;
     Vec2 operator-(const Vec2& other) const;
     Vec2 operator*(const double scalar) const;
@@ -40,3 +45,5 @@ inline Vec2 operator*(double scalar, const Vec2& vector) {
     return vector * scalar;
 
 }
+
+std::ostream& operator<<(std::ostream& os, const Vec2& vec);
